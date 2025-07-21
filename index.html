@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SJD - Créez des moments inoubliables avec nos surprises personnalisées. Paniers-cadeaux, événements romantiques et plus encore.">
+    <title>SJD - Faites battre les cœurs plus fort</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-slide {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #FF6B6B, #FF8E8E);
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+        .btn-secondary {
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        .fade-in {
+            animation: fadeIn 1s both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+            background: #FF6B6B;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #FF6B6B;
+            background: rgba(255,255,255,0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="sticky-nav bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-2xl font-bold text-pink-600 mr-2">SJD</div>
+                <span class="hidden md:block text-sm text-gray-600">Moments inoubliables</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-pink-600 font-medium">Accueil</a>
+                <a href="#services" class="hover:text-pink-600 transition">Services</a>
+                <a href="#about" class="hover:text-pink-600 transition">À Propos</a>
+                <a href="#testimonials" class="hover:text-pink-600 transition">Témoignages</a>
+                <a href="#contact" class="hover:text-pink-600 transition">Contact</a>
+            </nav>
+            
+            <button class="btn-primary px-6 py-2 rounded-full text-white font-medium hidden md:block">
+                Réserver une Surprise
+            </button>
+            
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full px-6 pb-4">
+            <div class="flex flex-col space-y-4">
+                <a href="#" class="text-pink-600 font-medium">Accueil</a>
+                <a href="#services" class="hover:text-pink-600 transition">Services</a>
+                <a href="#about" class="hover:text-pink-600 transition">À Propos</a>
+                <a href="#testimonials" class="hover:text-pink-600 transition">Témoignages</a>
+                <a href="#contact" class="hover:text-pink-600 transition">Contact</a>
+                <button class="btn-primary px-6 py-2 rounded-full text-white font-medium w-full">
+                    Réserver une Surprise
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Carousel -->
+    <section class="hero-slider relative">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide flex items-center justify-center text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/image2.jpg'); background-size: cover; background-repeat: space; background-position: center;">
+                        <div class="container mx-auto px-6">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6">Offrez plus qu'un cadeau</h1>
+                            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Créez un moment inoubliable avec SJD</p>
+                            <a href="#services" class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg inline-block">
+                                Découvrir nos surprises
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide flex items-center justify-center text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/image6.jpg')">
+                        <div class="container mx-auto px-6">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6">Un dîner aux chandelles</h1>
+                            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Transformez une soirée ordinaire en moment extraordinaire</p>
+                            <a href="#services" class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg inline-block">
+                                Découvrir nos surprises
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide flex items-center justify-center text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/image7.jpg')">
+                        <div class="container mx-auto px-6">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6">Paniers-cadeaux raffinés</h1>
+                            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Des sélections luxueuses pour toutes les occasions</p>
+                            <a href="#services" class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg inline-block">
+                                Découvrir nos surprises
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <div class="hero-slide flex items-center justify-center text-center text-white" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./images/image5.jpg')">
+                        <div class="container mx-auto px-6">
+                            <h1 class="text-4xl md:text-6xl font-bold mb-6">Pique-nique romantique</h1>
+                            <p class="text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Une escapade amoureuse en plein air</p>
+                            <a href="#services" class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg inline-block">
+                                Découvrir nos surprises
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Nos Services Phares</h2>
+            <p class="text-xl text-center mb-16 max-w-2xl mx-auto fade-in">Avec SJD, votre cœur bat plus fort</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">🎁</div>
+                    <h3 class="text-xl font-bold mb-3">Paniers cadeaux personnalisés</h3>
+                    <p class="text-gray-600">Des sélections luxueuses adaptées à tous les goûts et occasions.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">💐</div>
+                    <h3 class="text-xl font-bold mb-3">Bouquets de fleurs élégants</h3>
+                    <p class="text-gray-600">Compositions florales uniques pour toutes les émotions.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">🍽️</div>
+                    <h3 class="text-xl font-bold mb-3">Dîners romantiques</h3>
+                    <p class="text-gray-600">Créez des souvenirs magiques avec nos escapades amoureuses.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">✨</div>
+                    <h3 class="text-xl font-bold mb-3">Journées surprises</h3>
+                    <p class="text-gray-600">Une journée entière d'émotions et de découvertes.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">🌿</div>
+                    <h3 class="text-xl font-bold mb-3">Pique-niques de rêve</h3>
+                    <p class="text-gray-600">Installation complète dans le lieu de votre choix.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-xl p-8 shadow-lg transition duration-300 cursor-pointer fade-in">
+                    <div class="text-5xl text-pink-500 mb-6">🎉</div>
+                    <h3 class="text-xl font-bold mb-3">Événementiel sur-mesure</h3>
+                    <p class="text-gray-600">Des célébrations uniques conçues spécialement pour vous.</p>
+                    <div class="mt-6">
+                        <a href="#" class="text-pink-500 font-medium flex items-center">
+                            En savoir plus <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12 fade-in">
+                    <img src="./images/image8.jpg" alt="Équipe SJD" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="lg:w-1/2 fade-in">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-8">Pourquoi choisir SJD ?</h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-palette text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Créativité sur-mesure</h3>
+                                <p class="text-gray-600">Chaque création est unique et conçue spécialement pour votre proche, en fonction de ses goûts et de votre histoire.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-truck text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Livraison ponctuelle</h3>
+                                <p class="text-gray-600">Nous garantissons une exécution parfaite et une totale discrétion pour préserver l'effet de surprise.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-heart text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Expériences personnalisées</h3>
+                                <p class="text-gray-600">Nos experts en émotions travaillent avec passion pour concevoir des moments mémorables.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-hands-helping text-pink-500"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Accompagnement bienveillant</h3>
+                                <p class="text-gray-600">De la conception à la réalisation, nous sommes à vos côtés à chaque étape.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary px-8 py-3 rounded-full text-white font-medium mt-10">
+                        En savoir plus sur nous
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Ils nous ont fait confiance</h2>
+            <p class="text-xl text-center mb-16 max-w-2xl mx-auto fade-in">Découvrez ce que nos clients disent de nous</p>
+            
+            <div class="swiper testimonial-swiper fade-in">
+                <div class="swiper-wrapper">
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-3xl mx-auto">
+                            <div class="text-yellow-400 text-2xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl italic mb-6">"Mon mari a adoré la surprise anniversaire ! Tout était parfait, de la sélection des produits à la présentation. L'équipe a vraiment capté sa personnalité."</p>
+                            <div class="flex items-center justify-center">
+                                <img src="./images/image7.jpg" alt="Marie D." class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Marie D.</h4>
+                                    <p class="text-gray-600 text-sm">Paris</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-3xl mx-auto">
+                            <div class="text-yellow-400 text-2xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl italic mb-6">"La proposition de mariage organisée par SJD était tout simplement magique. Ils ont pensé à chaque détail et ont rendu ce moment encore plus spécial."</p>
+                            <div class="flex items-center justify-center">
+                                <img src="./images/image7.jpg" alt="Thomas L." class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Thomas L.</h4>
+                                    <p class="text-gray-600 text-sm">Lyon</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-3xl mx-auto">
+                            <div class="text-yellow-400 text-2xl mb-4">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-xl italic mb-6">"Je recommande SJD à tous mes amis. Le panier-cadeau pour la fête des mères était magnifique et livré à l'heure exacte que j'avais demandée."</p>
+                            <div class="flex items-center justify-center">
+                                <img src="./images/image7.jpg" alt="Sophie M." class="w-12 h-12 rounded-full mr-4">
+                                <div>
+                                    <h4 class="font-bold">Sophie M.</h4>
+                                    <p class="text-gray-600 text-sm">Marseille</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 fade-in">Nos Réalisations</h2>
+            <p class="text-xl text-center mb-16 max-w-2xl mx-auto fade-in">Quelques-unes de nos plus belles surprises</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 fade-in">
+                <div class="overflow-hidden rounded-xl shadow-lg">
+                    <img src="./images/image3.jpg" alt="Surprise romantique" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg">
+                    <img src="./images/image4.jpg" alt="Panier cadeau" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg">
+                    <img src="./images/image5.jpg" alt="Pique-nique" class="w-full h-64 object-cover transition duration-500 hover:scale-110">
+                </div>
+            </div>
+            
+            <div class="text-center fade-in">
+                <a href="#" class="btn-primary px-8 py-3 rounded-full text-white font-medium text-lg inline-block">
+                    Voir notre galerie complète
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-pink-500 to-pink-600 text-white">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Prêt(e) à surprendre quelqu'un de spécial ?</h2>
+            <p class="text-xl mb-10 max-w-2xl mx-auto">Contactez-nous dès maintenant pour créer une surprise inoubliable.</p>
+            <button class="btn-primary px-8 py-3 rounded-full bg-white text-pink-600 font-medium text-lg hover:bg-gray-100">
+                Commander une surprise
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="text-2xl font-bold text-pink-500 mb-4">SJD</div>
+                    <p class="text-gray-400 mb-4">Créez des moments inoubliables avec nos surprises personnalisées.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Accueil</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">À Propos</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition">Témoignages</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Paniers-cadeaux</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Événements romantiques</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Célébrations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Livraison express</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-pink-500 mr-3"></i>
+                            <span class="text-gray-400">sainvilthamar22@gmail.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-pink-500 mr-3"></i>
+                            <span class="text-gray-400">+5095524-0550</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-pink-500 mr-3"></i>
+                            <span class="text-gray-400">Petite Anse</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2025 SJD Surprises. Tous droits réservés.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Mentions légales</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Politique de confidentialité</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition">Conditions générales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Initialize Hero Swiper
+        const heroSwiper = new Swiper('.hero-slider .swiper', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        
+        // Initialize Testimonial Swiper
+        const testimonialSwiper = new Swiper('.testimonial-swiper', {
+            loop: true,
+            autoplay: {
+                delay: 8000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.testimonial-swiper .swiper-pagination',
+                clickable: true,
+            },
+        });
+        
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = () => {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Run once on load
+        fadeInOnScroll();
+        
+        // Then run on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Sticky nav background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.sticky-nav');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+                header.classList.add('bg-white');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('shadow-lg');
+                header.classList.remove('bg-white');
+                header.classList.add('bg-transparent');
+            }
+        });
+    </script>
+</body>
+</html>
